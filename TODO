@@ -1,0 +1,29 @@
+Phrases
+    Meets Expectations:
+        ☐ An array of strings has been created for the phrases
+        ☐ 5 phrases are in the array
+        ☐ Phrases in array include only letters and spaces
+    
+Phrase Display
+    Meets Expectations:
+        ☐ A random, unknown phrase is chosen when the page loads
+        ☐ Each letter and space is appended to the phrase display
+        ☐ Only letters in the phrase have the class “letter”
+
+    Exceeds Expectations:
+        ☐ Transitions have been added to the phrase display
+        
+Keyboard
+    Meets Expectations:
+        ☐ Clicking a letter present in the phrase adds the “show” class to those letters in the display
+        ☐ Clicking a letter not present in the phrase increases the count of the missed variable by 1 and changes a liveHeart.png image to a lostHeart.png image.
+        ☐ No letter can be clicked twice
+        ☐ Clicking space between letters does nothing
+
+Game Over
+    Meets Expectations:
+        ☐ If a player makes 5 wrong guesses, the “lose” overlay is shown
+        ☐ If all the letters in the phrase are shown, the “win” overlay is shown
+
+    Exceeds Expectations:
+        ☐ A button has been added to the “lose” and “win” overlays to reset the game
