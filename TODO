@@ -27,3 +27,33 @@ Game Over
 
     Exceeds Expectations:
         ☐ A button has been added to the “lose” and “win” overlays to reset the game
+ 
+
+
+
+===================
+"Word Avalanche" Beta Roadmap:
+    ☐ reference to game: https://www.youtube.com/watch?v=Tr_xvHMR6P0
+    ☐ background images
+    ☐ player image
+    ☐ monster image
+    ☐ word list
+    ☐ timer 
+    ☐ letter display with layout similar to the phone message keyboard layout
+    ☐ start screen button functionality
+    ☐ game over screen
+        ☐ reset button
+    ☐ as you guess right letter, monster moves back 5 meters
+        ☐ scaling images for movement via css
+    ☐ wrong letter, monster moves closer 5 meters
+    ☐ once monster is out of screen, a distance meter shows up
+        ☐ once monster is back in screen (by wrong letter selection), distance meter disappears
+    ☐ after correct phrase, player score points per letter of word, 2 points per letter
+        ☐ after 10 phrases, switch to level end state
+
+Level start state:
+    ☐ tutorial "bunny hill" walkthrough of the game
+    ☐ Phrase/word difficulties based on actual ski resort slope difficulties
+  
+level end state:
+    ☐ after you win 10 phrases, each word "avalanches" from top of screen and hits monster until monster is dead
