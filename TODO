@@ -1,8 +1,8 @@
 Phrases
     Meets Expectations:
-        ☐ An array of strings has been created for the phrases @started(22-03-26 00:43)
-        ☐ 5 phrases are in the array @started(22-03-26 00:43)
-        ☐ Phrases in array include only letters and spaces @started(22-03-26 00:43)
+        ✔ An array of strings has been created for the phrases @started(22-03-26 00:43) @done(22-03-29 01:39) @lasted(2d23h56m17s)
+        ✔ 5 phrases are in the array @started(22-03-26 00:43) @done(22-03-29 01:39) @lasted(2d23h56m19s)
+        ✔ Phrases in array include only letters and spaces @started(22-03-26 00:43) @done(22-03-29 01:39) @lasted(2d23h56m21s)
     
 Phrase Display
     Meets Expectations:
