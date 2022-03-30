@@ -66,8 +66,35 @@ function checkLetter(button) {
   return match;
 }
 
-qwerty.addEventListener('click', (e) => {
-  if(){
-    
+qwerty.addEventListener("click", (e) => {
+  if (e.target.tagName == "BUTTON") {
+    e.target.className = "chosen";
+    let letterFound = checkLetter(e.target);
+    if (checkLetter != null) {
+      missed++;
+      scoreboard.removeChild(scoreboard.firstElementChild);
+      let lostHeartLi = document.createElement("li");
+      lostHeartLi.className = "tries";
+      let lostHeartImg = document.createElement("img");
+      lostHeartImg.src = "res/lostHeart.png";
+      scoreboard.appendChild(lostHeartLi);
+      lostHeartLi.appendChild(lostHeartImg);
+    }
   }
 });
+
+function checkWin() {
+  let letter = document.getElementsByClassName(".letter");
+  let show = document.getElementsByClassName(".show");
+  if (letter.length == show.length) {
+    overlay.className = "win";
+    title.textContent = "You win my guy!";
+    overlay.display = "flex";
+  }
+  if (missed === 5) {
+    overlay.className = "lose";
+    title.textContent = "You lost bro!";
+    startButton.textContent = "Try your luck again";
+    overlay.style.display = "flex";
+  }
+}
