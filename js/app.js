@@ -23,7 +23,7 @@ let phrases = [
 ];
 
 // Hides display when start button is clicked
-startButton.addEventListener("click", (e) => {
+startButton.addEventListener("click", (event) => {
   overlay.style.display = "none";
 });
 
@@ -66,9 +66,9 @@ function checkLetter(button) {
   return match;
 }
 
-qwerty.addEventListener("click", (e) => {
-  if (e.target.tagName == "BUTTON") {
-    e.target.className = "chosen";
+qwerty.addEventListener("click", (event) => {
+  if (event.target.tagName == "BUTTON") {
+    event.target.className = "chosen";
     let letterFound = checkLetter(e.target);
     if (checkLetter != null) {
       missed++;
