@@ -1,7 +1,7 @@
 // declaring which elements are needed
 let qwerty = document.getElementById("qwerty");
 let phrase = document.getElementById("phrase");
-let missed = 0; //if they miss 5 times, they lose
+let missed = 0;
 let scoreboard = document.querySelector("#scoreboard ol");
 let overlay = document.getElementById("overlay");
 let title = document.querySelector("#overlay .title");
@@ -27,14 +27,14 @@ startButton.addEventListener("click", (event) => {
 });
 
 // This function will randomly select a phrase from phraseArray
-function getRandomPhraseAsArray(phrases) {
+const getRandomPhraseAsArray = (phrases) => {
   let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
   return Array.from(randomPhrase);
-}
+};
 
 // for each character of phrase, it creates li element and appends
 // Then checks that each character is a through z, if true: add class 'letter', if false: add class 'space'
-function addPhraseToDisplay(phrase) {
+const addPhraseToDisplay = (phrase) => {
   for (const char of phrase) {
     let li = document.createElement("li");
     li.appendChild(document.createTextNode(char));
@@ -45,13 +45,13 @@ function addPhraseToDisplay(phrase) {
       li.classList.add("space");
     }
   }
-}
+};
 
 const phraseArray = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
 
 // Search and match the button.innerText to the li.innerText and store all matches in the variable match
-function checkLetter(button) {
+const checkLetter = (button) => {
   const storeAllLI = document.querySelectorAll("#phrase ul li");
   let match = null;
   for (let i = 0; i < storeAllLI.length; i++) {
@@ -62,30 +62,33 @@ function checkLetter(button) {
     }
   }
   return match;
-}
+};
 
 // listens for a button click on the qwerty keyboard
 // then if theres a miss, remove heart and recreate a lostHeart
 qwerty.addEventListener("click", (event) => {
   if (event.target.tagName == "BUTTON") {
     event.target.className = "chosen";
-    let letterFound = checkLetter(e.target);
-    if (checkLetter != null) {
+    let letterFound = checkLetter(event.target);
+    if (letterFound === null) {
       missed++;
       scoreboard.removeChild(scoreboard.firstElementChild);
       let lostHeartLi = document.createElement("li");
       lostHeartLi.className = "tries";
       let lostHeartImg = document.createElement("img");
-      lostHeartImg.src = "res/lostHeart.png";
-      scoreboard.appendChild(lostHeartLi);
+      lostHeartImg.src = "res/lostHeart.png ";
+      lostHeartImg.className = "imgTries";
       lostHeartLi.appendChild(lostHeartImg);
+      scoreboard.appendChild(lostHeartLi);
     }
   }
+  checkWin();
 });
 
 // this checks to see if all of the letters were guess, or if you accumulated 5 misses
 // triggers win scree/loss screen
 function checkWin() {
+  console.log("checking");
   let letter = document.getElementsByClassName(".letter");
   let show = document.getElementsByClassName(".show");
   if (letter.length == show.length) {
@@ -102,27 +105,41 @@ function checkWin() {
 }
 
 // resetting the phrases
-function resetPhrase(){
-
+function resetPhrase() {
+  phrase.removeChild(phrase.firstElementChild);
+  let ul = document.createElement("ul");
+  phrase.appendChild(ul);
 }
 
 // resetting scoreboard
-function resetScoreboard(){
-
+function resetScoreboard() {
+  for (let i = 0; i < 5; i++) {
+    scoreboard.removeChild(scoreboard.firstElementChild);
+    let lostHeartLi = document.createElement("li");
+    lostHeartLi.className = "tries";
+    let lostHeartImg = document.createElement("img");
+    lostHeartImg.src = "res/lostHeart.png";
+    scoreboard.appendChild(lostHeartLi);
+    lostHeartLi.appendChild(lostHeartImg);
+  }
 }
 
 // resetting qwerty
-function resetQWERTY(){
-  
+function resetQWERTY() {
+  let qwerty = document.querySelectorAll("#qwerty button");
+  for (let i = 0; i < qwerty.length; i++) {
+    qwerty[i].disabled = false;
+    qwerty[i].classList.remove("chosen");
+  }
 }
 
 // clearing the game
 // This clears the phrase, scoreboard and the qwerty keyboard
-function restartGame(){
-  resetPhrase()
-  resetScoreboard()
-  resetQWERTY()
-  missed = 0
-  let phrases = getRandomPhraseAsArray(phrases)
-  addPhraseToDisplay(phrases)
+function restartGame() {
+  resetPhrase();
+  resetScoreboard();
+  resetQWERTY();
+  missed = 0;
+  let phrases = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(phrases);
 }
