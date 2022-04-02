@@ -21,8 +21,38 @@ let phrases = [
   "on top of the world",
 ];
 
+// resetting the phrases
+function resetPhrase() {
+  phrase.removeChild(phrase.firstElementChild);
+  let ul = document.createElement("ul");
+  phrase.appendChild(ul);
+}
+
+// resetting scoreboard
+function resetScoreboard() {
+  for (let i = 0; i < 5; i++) {
+    consold.log("Removing Scoreboard");
+    scoreboard.removeChild(scoreboard.firstElementChild);
+    let lostHeartLi = document.createElement("li");
+    lostHeartLi.className = "tries";
+    let lostHeartImg = document.createElement("img");
+    lostHeartImg.src = "res/lostHeart.png";
+    scoreboard.appendChild(lostHeartLi);
+    lostHeartLi.appendChild(lostHeartImg);
+  }
+}
+
+// resetting qwerty
+function resetQWERTY() {
+  let qwerty = document.querySelectorAll("#qwerty button");
+  for (let i = 0; i < qwerty.length; i++) {
+    qwerty[i].disabled = false;
+    qwerty[i].classList.remove("chosen");
+  }
+}
+
 // Hides display when start button is clicked
-startButton.addEventListener("click", (event) => {
+startButton.addEventListener("click", (e) => {
   overlay.style.display = "none";
 });
 
@@ -88,7 +118,6 @@ qwerty.addEventListener("click", (event) => {
 // this checks to see if all of the letters were guess, or if you accumulated 5 misses
 // triggers win scree/loss screen
 function checkWin() {
-  console.log("checking");
   let letter = document.getElementsByClassName(".letter");
   let show = document.getElementsByClassName(".show");
   if (letter.length == show.length) {
@@ -104,35 +133,6 @@ function checkWin() {
   }
 }
 
-// resetting the phrases
-function resetPhrase() {
-  phrase.removeChild(phrase.firstElementChild);
-  let ul = document.createElement("ul");
-  phrase.appendChild(ul);
-}
-
-// resetting scoreboard
-function resetScoreboard() {
-  for (let i = 0; i < 5; i++) {
-    scoreboard.removeChild(scoreboard.firstElementChild);
-    let lostHeartLi = document.createElement("li");
-    lostHeartLi.className = "tries";
-    let lostHeartImg = document.createElement("img");
-    lostHeartImg.src = "res/lostHeart.png";
-    scoreboard.appendChild(lostHeartLi);
-    lostHeartLi.appendChild(lostHeartImg);
-  }
-}
-
-// resetting qwerty
-function resetQWERTY() {
-  let qwerty = document.querySelectorAll("#qwerty button");
-  for (let i = 0; i < qwerty.length; i++) {
-    qwerty[i].disabled = false;
-    qwerty[i].classList.remove("chosen");
-  }
-}
-
 // clearing the game
 // This clears the phrase, scoreboard and the qwerty keyboard
 function restartGame() {
@@ -143,3 +143,4 @@ function restartGame() {
   let phrases = getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phrases);
 }
+restartGame();
