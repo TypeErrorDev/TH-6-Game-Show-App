@@ -18,7 +18,7 @@
   --transition: all 0.2s ease-in-out;
 }
 .imgTries {
-  height:35px; 
+  height: 35px;
   width: 30px;
 }
 
@@ -119,7 +119,6 @@ button {
   color: #ffffff;
 }
 
-
 .btn__reset {
   padding: 8px;
   margin: 50px auto;
@@ -157,6 +156,7 @@ button {
 
 .win {
   background-color: var(--color-win);
+  display: flex;
 }
 
 .win a {
