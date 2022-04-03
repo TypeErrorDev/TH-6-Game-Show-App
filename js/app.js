@@ -64,6 +64,7 @@ const checkLetter = (button) => {
     const li = storeAllLI[i];
     if (button.innerText === li.innerText) {
       li.classList.add("show");
+      li.style.transition = "all .9s ease";
       match = button.innerText;
     }
   }
