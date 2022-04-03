@@ -30,7 +30,6 @@ function start(e) {
 
 function reset(e) {
   restartGame(phrases);
-  console.log("reset");
 }
 
 // This function will randomly select a phrase from phraseArray
@@ -52,7 +51,6 @@ const addPhraseToDisplay = (phrase, ul) => {
       li.classList.add("space");
     }
   }
-  console.log(list);
 };
 
 const phraseArray = getRandomPhraseAsArray(phrases);
@@ -78,9 +76,9 @@ qwerty.addEventListener("click", (event) => {
   if (event.target.tagName == "BUTTON") {
     event.target.className = "chosen";
     let letterFound = checkLetter(event.target);
-
     if (letterFound === null) {
       missed++;
+      event.target.disabled = true;
       scoreboard.removeChild(scoreboard.firstElementChild);
       let lostHeartLi = document.createElement("li");
       let lostHeartImg = document.createElement("img");
