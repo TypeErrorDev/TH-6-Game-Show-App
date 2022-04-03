@@ -26,11 +26,11 @@ startButton.addEventListener("click", start);
 
 function start(e) {
   overlay.style.display = "none";
-  reset();
+  resetGame();
 }
 
-function reset(e) {
-  restartGame(phrases);
+function resetGame(e) {
+  clearGame(phrases);
 }
 
 // This function will randomly select a phrase from phraseArray
@@ -145,7 +145,7 @@ function resetQWERTY() {
 
 // clearing the game
 // This clears the phrase, scoreboard and the qwerty keyboard
-function restartGame(arr) {
+function clearGame(arr) {
   let phrases = getRandomPhraseAsArray(arr);
   resetPhrase(phrases);
   resetScoreboard();
