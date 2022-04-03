@@ -26,6 +26,7 @@ startButton.addEventListener("click", start);
 
 function start(e) {
   overlay.style.display = "none";
+  reset();
 }
 
 function reset(e) {
@@ -64,7 +65,7 @@ const checkLetter = (button) => {
     const li = storeAllLI[i];
     if (button.innerText === li.innerText) {
       li.classList.add("show");
-      li.style.transition = "all .9s ease";
+      li.style.transition = "all 0.7s ease";
       match = button.innerText;
     }
   }
@@ -99,16 +100,15 @@ function checkWin() {
   let show = document.querySelectorAll(".show");
   if (letter.length == show.length) {
     overlay.className = "win";
-    title.textContent = "You win!";
+    title.textContent = "Congrats You Win!";
+    startButton.textContent = "Try again?";
     overlay.style.display = "flex";
   }
   if (missed === 5) {
     overlay.className = "lose";
-    title.textContent = "You lost bro!";
-    startButton.textContent = "Try your luck again";
+    title.textContent = "Aw, You Lost!";
+    startButton.textContent = "Try again?";
     overlay.style.display = "flex";
-    startButton.removeEventListener("click", start);
-    startButton.addEventListener("click", reset);
   }
 }
 
