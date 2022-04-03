@@ -18,15 +18,15 @@ Keyboard
         ✔ Clicking a letter present in the phrase adds the “show” class to those letters in the display @started(22-03-26 00:43) @done(22-04-03 01:56) @lasted(1w1d13m23s)
         ✔ Clicking a letter not present in the phrase increases the count of the missed variable by 1 and changes a liveHeart.png image to a lostHeart.png image. @started(22-03-26 00:43) @done(22-04-03 02:13) @lasted(1w1d30m12s)
         ☐ No letter can be clicked twice @started(22-03-26 00:43)
-        ✔ Clicking space between letters does nothing @started(22-03-26 00:43) @done(22-04-03 03:21) @lasted(1w1d1h38m35s)
+        ☐ Clicking space between letters does nothing @started(22-03-26 00:43)
 
 Game Over
     Meets Expectations:
-        ✔ If a player makes 5 wrong guesses, the “lose” overlay is shown @started(22-03-26 00:43) @done(22-04-03 03:21) @lasted(1w1d1h38m37s)
-        ✔ If all the letters in the phrase are shown, the “win” overlay is shown @started(22-03-26 00:43) @done(22-04-03 03:21) @lasted(1w1d1h38m41s)
+        ☐ If a player makes 5 wrong guesses, the “lose” overlay is shown @started(22-03-26 00:43)
+        ☐ If all the letters in the phrase are shown, the “win” overlay is shown @started(22-03-26 00:43)
 
     Exceeds Expectations:
-        ✔ A button has been added to the “lose” and “win” overlays to reset the game @started(22-03-26 00:43) @done(22-04-03 03:21) @lasted(1w1d1h38m44s)
+        ☐ A button has been added to the “lose” and “win” overlays to reset the game @started(22-03-26 00:43)
  
 
 
